@@ -1,0 +1,1786 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0e0e0c" />
+    <title>Grana Viva</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #0e0e0c;
+        --p: #17170f;
+        --p2: #222216;
+        --line: #3a3a26;
+        --y: #ffd400;
+        --g: #3ddc84;
+        --r: #ff4d4d;
+        --t: #f6f3e4;
+        --m: #9a977f;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      body {
+        background: var(--ink);
+        color: var(--t);
+        font:
+          14px/1.45 "DM Sans",
+          system-ui,
+          sans-serif;
+        padding-bottom: 104px;
+        -webkit-tap-highlight-color: transparent;
+        overflow-x: hidden;
+      }
+
+      button {
+        font: inherit;
+        color: inherit;
+        border: 0;
+        background: none;
+        cursor: pointer;
+      }
+
+      .w {
+        max-width: 480px;
+        margin: auto;
+        padding: 0 16px;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        padding: 14px 0 10px;
+      }
+
+      .brand {
+        font: 20px "Bowlby One";
+        letter-spacing: -0.5px;
+        flex: 1;
+      }
+
+      .brand em {
+        font-style: normal;
+        color: var(--y);
+        margin-left: 6px;
+      }
+
+      .date {
+        text-align: right;
+        line-height: 1.15;
+      }
+
+      .date b {
+        font: 15px "Bowlby One";
+      }
+
+      .date span {
+        display: block;
+        font-size: 11px;
+        color: var(--m);
+      }
+
+      .ib {
+        width: 36px;
+        height: 36px;
+        border: 2px solid var(--line);
+        border-radius: 10px;
+        margin-left: 10px;
+        font-size: 16px;
+      }
+
+      .prog {
+        height: 6px;
+        background: var(--p2);
+        border-radius: 9px;
+        overflow: hidden;
+        margin-bottom: 14px;
+      }
+
+      .prog i {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: var(--y);
+        transition: width 0.3s;
+      }
+
+      .hero {
+        background: var(--y);
+        color: var(--ink);
+        border-radius: 20px;
+        padding: 16px 16px 12px;
+        box-shadow: 5px 5px 0 #7a6700;
+      }
+
+      small.k {
+        font-weight: 700;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        opacity: 0.7;
+        display: block;
+      }
+
+      .big {
+        font: 44px/1.05 "Bowlby One";
+        letter-spacing: -1.5px;
+        font-variant-numeric: tabular-nums;
+        position: relative;
+      }
+
+      .sub {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 700;
+        margin: 4px 0 8px;
+      }
+
+      .pill {
+        background: var(--ink);
+        padding: 2px 9px;
+        border-radius: 99px;
+        color: var(--g);
+      }
+
+      .pill.dn {
+        color: var(--r);
+      }
+
+      .hero svg {
+        width: 100%;
+        height: 110px;
+        display: block;
+      }
+
+      .lg {
+        font-size: 11px;
+        font-weight: 700;
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
+
+      .lg i {
+        width: 14px;
+        height: 3px;
+        background: var(--ink);
+      }
+
+      .lg i.d {
+        background: none;
+        border-top: 3px dashed #0008;
+        margin-left: 8px;
+      }
+
+      .chips {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin: 14px 0;
+      }
+
+      .chips > div {
+        background: var(--p);
+        border: 2px solid var(--line);
+        border-radius: 14px;
+        padding: 9px 10px;
+      }
+
+      .chips .k {
+        color: var(--m);
+        opacity: 1;
+      }
+
+      .chips b {
+        display: block;
+        font: 15px "Bowlby One";
+      }
+
+      .moth b {
+        color: var(--r);
+      }
+
+      u {
+        display: block;
+        height: 5px;
+        background: var(--p2);
+        border-radius: 5px;
+        margin-top: 5px;
+        overflow: hidden;
+      }
+
+      u i {
+        display: block;
+        height: 100%;
+        background: var(--g);
+        width: 0;
+        transition: width 0.4s;
+      }
+
+      .capi {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .capi svg {
+        width: 62px;
+        flex: none;
+      }
+
+      .capi.bump svg {
+        animation: bump 0.5s;
+      }
+
+      @keyframes bump {
+        40% {
+          transform: translateY(-10px) rotate(-6deg);
+        }
+      }
+
+      .capi p {
+        background: var(--p);
+        border: 2px solid var(--line);
+        border-radius: 14px 14px 14px 3px;
+        padding: 9px 12px;
+        font-size: 13px;
+      }
+
+      nav {
+        display: flex;
+        gap: 6px;
+        position: sticky;
+        top: 0;
+        background: var(--ink);
+        padding: 8px 0;
+        z-index: 5;
+      }
+
+      nav button {
+        flex: 1;
+        padding: 9px;
+        border-radius: 11px;
+        border: 2px solid var(--line);
+        font-weight: 700;
+        color: var(--m);
+      }
+
+      nav .on {
+        background: var(--y);
+        color: var(--ink);
+        border-color: var(--y);
+      }
+
+      .view {
+        display: none;
+      }
+
+      .view.on {
+        display: block;
+        animation: in 0.25s;
+      }
+
+      @keyframes in {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        background: var(--p);
+        border: 2px solid var(--line);
+        border-radius: 15px;
+        padding: 10px 12px;
+        margin-top: 8px;
+        width: 100%;
+        text-align: left;
+      }
+
+      .row:active {
+        transform: scale(0.98);
+      }
+
+      .tile {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        font: 13px "Bowlby One";
+        color: var(--ink);
+        flex: none;
+      }
+
+      .nm {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .nm b {
+        display: block;
+      }
+
+      .nm small {
+        color: var(--m);
+        font-size: 11px;
+      }
+
+      .spk {
+        width: 60px;
+        height: 26px;
+        flex: none;
+      }
+
+      .rt {
+        text-align: right;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .rt small {
+        display: block;
+        font-size: 11px;
+      }
+
+      .up {
+        color: var(--g);
+      }
+
+      .dn {
+        color: var(--r);
+      }
+
+      h4 {
+        font: 12px "Bowlby One";
+        letter-spacing: 0.06em;
+        color: var(--m);
+        margin: 18px 0 2px;
+      }
+
+      .bar {
+        display: flex;
+        height: 16px;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 10px 0;
+        background: var(--p2);
+      }
+
+      .bar i {
+        transition: width 0.4s;
+      }
+
+      .dock {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 22px 16px calc(10px + env(safe-area-inset-bottom));
+        background: linear-gradient(transparent, var(--ink) 35%);
+        z-index: 6;
+      }
+
+      .dock div {
+        max-width: 480px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+      }
+
+      .tb {
+        background: var(--p2);
+        border: 2px solid var(--line);
+        border-radius: 14px;
+        padding: 8px 0;
+        font-weight: 700;
+        font-size: 11px;
+        box-shadow: 0 4px 0 #000;
+      }
+
+      .tb:active {
+        transform: translateY(3px);
+        box-shadow: 0 1px 0 #000;
+      }
+
+      .tb.pri {
+        background: var(--y);
+        color: var(--ink);
+        border-color: var(--y);
+      }
+
+      .tb b {
+        display: block;
+        font: 15px "Bowlby One";
+      }
+
+      #sheet {
+        position: fixed;
+        inset: 0;
+        background: #000b;
+        display: none;
+        align-items: flex-end;
+        z-index: 9;
+      }
+
+      #sheet.on {
+        display: flex;
+      }
+
+      #sc {
+        width: 100%;
+        max-width: 480px;
+        margin: auto;
+        background: var(--p);
+        border: 2px solid var(--line);
+        border-bottom: 0;
+        border-radius: 24px 24px 0 0;
+        padding: 14px 18px calc(20px + env(safe-area-inset-bottom));
+        max-height: 92vh;
+        overflow: auto;
+        animation: up 0.3s cubic-bezier(0.2, 1.2, 0.4, 1);
+      }
+
+      @keyframes up {
+        from {
+          transform: translateY(100%);
+        }
+      }
+
+      .grip {
+        display: block;
+        width: 40px;
+        height: 4px;
+        background: var(--line);
+        border-radius: 4px;
+        margin: 0 auto 12px;
+      }
+
+      .tag {
+        font-weight: 700;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        color: var(--y);
+      }
+
+      h2 {
+        font: 24px/1.1 "Bowlby One";
+        margin: 4px 0 8px;
+      }
+
+      .op,
+      .cta {
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        padding: 13px;
+        border-radius: 14px;
+        border: 2px solid var(--line);
+        background: var(--p2);
+        font-weight: 700;
+        text-align: left;
+      }
+
+      .cta {
+        background: var(--y);
+        color: var(--ink);
+        border-color: var(--y);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta[disabled] {
+        opacity: 0.4;
+      }
+
+      .cta i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        background: #fff6;
+      }
+
+      .cta span {
+        position: relative;
+      }
+
+      .box {
+        background: var(--p2);
+        border-radius: 12px;
+        padding: 10px 12px;
+        margin: 10px 0;
+        font-size: 13px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin: 10px 0;
+      }
+
+      .grid div {
+        background: var(--p2);
+        border-radius: 12px;
+        padding: 8px 10px;
+        font-weight: 700;
+      }
+
+      .grid small {
+        display: block;
+        color: var(--m);
+        font-size: 10px;
+        letter-spacing: 0.1em;
+      }
+
+      .rg {
+        display: flex;
+        gap: 6px;
+        margin: 6px 0;
+      }
+
+      .rg button {
+        flex: 1;
+        padding: 7px;
+        border-radius: 9px;
+        border: 2px solid var(--line);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .rg .on {
+        background: var(--y);
+        color: var(--ink);
+        border-color: var(--y);
+      }
+
+      input[type="range"] {
+        width: 100%;
+        accent-color: var(--y);
+        margin: 8px 0 2px;
+      }
+
+      .amt {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-weight: 700;
+      }
+
+      .amt b {
+        font: 22px "Bowlby One";
+      }
+
+      #sch {
+        width: 100%;
+        height: 120px;
+        display: block;
+        margin: 8px 0;
+      }
+
+      .eff {
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 0;
+        border-bottom: 1px solid var(--line);
+        font-weight: 700;
+      }
+
+      .log {
+        padding: 9px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .log small {
+        color: var(--m);
+      }
+
+      .c {
+        position: fixed;
+        top: -10px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        animation: fall 1.6s ease-in forwards;
+        z-index: 20;
+        pointer-events: none;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(105vh) rotate(540deg);
+        }
+      }
+
+      .fl {
+        position: fixed;
+        font: 20px "Bowlby One";
+        pointer-events: none;
+        z-index: 21;
+        animation: fl 1s ease-out forwards;
+      }
+
+      @keyframes fl {
+        to {
+          transform: translateY(-60px);
+          opacity: 0;
+        }
+      }
+
+      body.fg::after,
+      body.fr::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 15;
+        animation: fa 0.7s ease-out forwards;
+      }
+
+      body.fg::after {
+        box-shadow: inset 0 0 90px 10px #3ddc8466;
+      }
+
+      body.fr::after {
+        box-shadow: inset 0 0 90px 10px #ff4d4d77;
+      }
+
+      @keyframes fa {
+        from {
+          opacity: 1;
+        }
+
+        to {
+          opacity: 0;
+        }
+      }
+
+      .shake {
+        animation: sh 0.4s;
+      }
+
+      @keyframes sh {
+        20% {
+          transform: translateX(-8px);
+        }
+
+        40% {
+          transform: translateX(7px);
+        }
+
+        60% {
+          transform: translateX(-5px);
+        }
+
+        80% {
+          transform: translateX(3px);
+        }
+      }
+
+      #toast {
+        position: fixed;
+        left: 50%;
+        top: 16px;
+        transform: translate(-50%, -90px);
+        background: var(--y);
+        color: var(--ink);
+        font-weight: 700;
+        padding: 10px 16px;
+        border-radius: 12px;
+        z-index: 30;
+        transition: transform 0.3s;
+        max-width: 90%;
+        text-align: center;
+        box-shadow: 3px 3px 0 #7a6700;
+      }
+
+      #toast.on {
+        transform: translate(-50%, 0);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="w" id="app">
+      <header>
+        <div class="brand">GRANA<em>VIVA</em></div>
+        <div class="date">
+          <b id="dt">1 JAN</b><span id="dn">dia 1 de 365</span>
+        </div>
+        <button class="ib" id="snd" aria-label="Som">♪</button>
+      </header>
+      <div class="prog"><i id="pr"></i></div>
+      <section class="hero">
+        <small class="k">PATRIMÔNIO</small>
+        <div class="big" id="tot">R$ 5.000</div>
+        <div class="sub">
+          <span class="pill" id="dlt">+0,0%</span
+          ><span id="real">real R$ 5.000</span>
+        </div>
+        <svg id="ch" viewBox="0 0 340 110" preserveAspectRatio="none"></svg>
+        <div class="lg"><i></i>você<i class="d"></i>colchão (sem investir)</div>
+      </section>
+      <section class="chips">
+        <div><small class="k">CAIXA</small><b id="cash">R$ 5.000</b></div>
+        <div>
+          <small class="k">RESERVA</small><b id="res">1,8 m</b
+          ><u><i id="rb"></i></u>
+        </div>
+        <div class="moth">
+          <small class="k">TRAÇA COMEU</small><b id="eat">R$ 0</b>
+        </div>
+      </section>
+      <section class="capi" id="capi">
+        <svg viewBox="0 0 64 56">
+          <ellipse cx="30" cy="38" rx="25" ry="15" fill="#a9733f" />
+          <circle cx="48" cy="25" r="13" fill="#bd8650" />
+          <ellipse cx="57" cy="29" rx="7" ry="5.5" fill="#6b4423" />
+          <circle cx="42" cy="13" r="4" fill="#a9733f" />
+          <rect x="40" y="20" width="14" height="6" rx="3" fill="#0e0e0c" />
+          <rect x="40" y="21" width="5" height="1.5" fill="#ffd400" />
+          <circle cx="58" cy="28" r="1" fill="#0e0e0c" />
+          <rect x="12" y="48" width="5" height="7" rx="2" fill="#6b4423" />
+          <rect x="38" y="48" width="5" height="7" rx="2" fill="#6b4423" />
+        </svg>
+        <p id="say"></p>
+      </section>
+      <nav id="tabs">
+        <button class="on" data-t="m">Mercado</button
+        ><button data-t="c">Carteira</button><button data-t="r">Radar</button>
+      </nav>
+      <main>
+        <div class="view on" id="v-m"></div>
+        <div class="view" id="v-c"></div>
+        <div class="view" id="v-r"></div>
+      </main>
+    </div>
+    <div class="dock">
+      <div>
+        <button class="tb pri" data-n="1"><b>+1</b>dia</button
+        ><button class="tb" data-n="7"><b>+7</b>semana</button
+        ><button class="tb" data-n="30"><b>+30</b>mês</button
+        ><button class="tb" data-n="90"><b>»</b>até evento</button>
+      </div>
+    </div>
+    <div id="sheet">
+      <div id="sc"></div>
+    </div>
+    <div id="toast"></div>
+    <script>
+      const $ = (s) => document.querySelector(s),
+        $$ = (s) => [...document.querySelectorAll(s)];
+      const R$ = (n) =>
+        n.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+          maximumFractionDigits: 0,
+        });
+      const pc = (n) =>
+        (n >= 0 ? "+" : "") + n.toFixed(1).replace(".", ",") + "%";
+      const g = () => {
+        let u = 0,
+          v = 0;
+        while (!u) u = Math.random();
+        while (!v) v = Math.random();
+        return Math.sqrt(-2 * Math.log(u)) * Math.cos(6.283 * v);
+      };
+      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+      const pick = (a) => a[Math.floor(Math.random() * a.length)];
+      const MES = [
+        "JAN",
+        "FEV",
+        "MAR",
+        "ABR",
+        "MAI",
+        "JUN",
+        "JUL",
+        "AGO",
+        "SET",
+        "OUT",
+        "NOV",
+        "DEZ",
+      ];
+      const dateOf = (d) => new Date(2027, 0, d);
+
+      const S = {
+        day: 1,
+        cash: 5000,
+        pos: {},
+        selic: 14,
+        ipca: 4.4,
+        usd: 5.2,
+        sent: 0,
+        xp: 0,
+        eaten: 0,
+        mattress: 5000,
+        forced: 0,
+        tot: [5000],
+        mat: [5000],
+        log: [],
+        why: {},
+        snd: true,
+        busy: false,
+        seen: {},
+      };
+      const A = [
+        {
+          id: "poup",
+          n: "Poupança",
+          m: "PO",
+          c: "#e8c75b",
+          rf: 1,
+          y: () => 6.2,
+          vol: 0,
+          b: 0,
+          s: 0,
+          liq: "Imediata",
+          risk: "Baixíssimo",
+          ir: 0,
+          d: "Simples e segura, mas rende pouco. Com a Selic alta, perde para quase toda a renda fixa.",
+          tip: 'Erro nº 1 do iniciante: deixar parado "porque é seguro".',
+        },
+        {
+          id: "sel",
+          n: "Tesouro Selic",
+          m: "TS",
+          c: "#b5dc5a",
+          rf: 1,
+          y: (S) => S.selic * 0.99,
+          vol: 0.0003,
+          b: 0,
+          s: 0,
+          liq: "D+1",
+          risk: "Muito baixo",
+          ir: 0.15,
+          d: "Você empresta ao governo e recebe a Selic. Quase não oscila: é o lar natural da reserva de emergência.",
+          tip: "Se a Selic sobe, ele rende mais. Simples assim.",
+        },
+        {
+          id: "cdb",
+          n: "CDB 110% CDI",
+          m: "CD",
+          c: "#5fd6b0",
+          rf: 1,
+          y: (S) => S.selic * 1.09,
+          vol: 0.0004,
+          b: 0,
+          s: 0,
+          liq: "Diária",
+          risk: "Baixo",
+          ir: 0.15,
+          d: "Empréstimo a um banco. Rende 110% do CDI, que anda colado na Selic. Cobertura do FGC até R$ 250 mil por CPF/instituição.",
+          tip: '"110% do CDI" é só uma forma de dizer quanto da taxa-base ele paga.',
+        },
+        {
+          id: "ipca",
+          n: "Tesouro IPCA+",
+          m: "IP",
+          c: "#79b9ed",
+          rf: 1,
+          y: (S) => S.ipca + 6.8,
+          vol: 0.004,
+          b: 0,
+          s: -9,
+          liq: "D+1 (preço oscila)",
+          risk: "Moderado",
+          ir: 0.15,
+          d: "Paga inflação mais uma taxa fixa. Protege o poder de compra, mas o preço cai se os juros sobem antes do vencimento.",
+          tip: "Aqui você vê a marcação a mercado: juros sobem, preço do título cai.",
+        },
+        {
+          id: "acoes",
+          n: "Ações VIVA SA",
+          m: "AC",
+          c: "#a6f36b",
+          y: () => 20,
+          vol: 0.017,
+          b: 1.2,
+          s: -7,
+          cl: 1,
+          liq: "D+2",
+          risk: "Alto",
+          ir: 0.15,
+          d: "Você vira sócio de uma empresa fictícia. Ganha com valorização e dividendos, e sofre quando o mercado entra em pânico.",
+          tip: "Empresa boa tem pouca dívida e vantagem real. Preço subindo não prova nada.",
+        },
+        {
+          id: "fii",
+          n: "FII Renda Urbana",
+          m: "FI",
+          c: "#c39cff",
+          y: () => 15,
+          vol: 0.009,
+          b: 0.7,
+          s: -6,
+          cl: 1,
+          liq: "D+2",
+          risk: "Moderado",
+          ir: 0.15,
+          d: "Cotas de um fundo de imóveis. Paga aluguel todo mês (isento de IR para pessoa física), mas a cota oscila com os juros.",
+          tip: "Selic alta pesa nos FIIs: a renda fixa vira concorrente forte.",
+        },
+        {
+          id: "etf",
+          n: "ETF Mundo",
+          m: "ET",
+          c: "#68c9e8",
+          y: () => 11,
+          vol: 0.011,
+          b: 0.9,
+          s: -4,
+          cl: 1,
+          liq: "D+2",
+          risk: "Moderado",
+          ir: 0.15,
+          d: "Uma cesta de ações do mundo todo negociada como um papel só. Diversificação pronta, sem escolher empresa por empresa.",
+          tip: "Diversificar reduz o risco de uma empresa só. Não elimina o risco do mercado.",
+        },
+        {
+          id: "ouro",
+          n: "Ouro",
+          m: "AU",
+          c: "#f1bb55",
+          y: () => 8.5,
+          vol: 0.011,
+          b: -0.2,
+          s: 0,
+          cl: 1,
+          liq: "D+2",
+          risk: "Moderado",
+          ir: 0.15,
+          d: "Reserva de valor há séculos. Costuma segurar bem em crises e em inflação alta, e não depende de governo nenhum.",
+          tip: "Repare: quando o mercado entra em pânico, ele tende a ser o último a cair.",
+        },
+        {
+          id: "cripto",
+          n: "Cripto MEME",
+          m: "MM",
+          c: "#ff7d9d",
+          y: () => 45,
+          vol: 0.035,
+          b: 3,
+          s: -6,
+          liq: "24h/7d",
+          risk: "Extremo",
+          ir: 0.15,
+          d: "Oferta limitada, regras por protocolo, volatilidade absurda. Pode dobrar e pode virar pó. Nunca é reserva de emergência.",
+          tip: "Se alguém promete 10x, quem está ganhando é quem vende a promessa.",
+        },
+      ];
+      A.forEach((a) => {
+        a.p = 100;
+        a.h = [100];
+      });
+      const ast = (id) => A.find((a) => a.id === id);
+      const pos = (id) => S.pos[id] || { u: 0, cost: 0 };
+      const val = (id) => pos(id).u * ast(id).p;
+      const invested = () => Object.keys(S.pos).reduce((s, i) => s + val(i), 0);
+      const total = () => S.cash + invested();
+
+      function buy(id, amt) {
+        const a = ast(id),
+          p = pos(id);
+        S.pos[id] = { u: p.u + amt / a.p, cost: p.cost + amt };
+        S.cash -= amt;
+      }
+      function sell(id, f) {
+        const a = ast(id),
+          p = pos(id),
+          v = p.u * f * a.p,
+          gain = Math.max(0, v - p.cost * f),
+          net = v - gain * a.ir;
+        S.pos[id] = { u: p.u * (1 - f), cost: p.cost * (1 - f) };
+        if (S.pos[id].u < 1e-6) delete S.pos[id];
+        S.cash += net;
+        return net;
+      }
+      function pay(amt) {
+        S.cash -= amt;
+        if (S.cash >= 0) return false;
+        for (const id of Object.keys(S.pos).sort((a, b) => val(b) - val(a))) {
+          if (S.cash >= 0) break;
+          sell(id, Math.min(1, -S.cash / (val(id) * 0.85 || 1)));
+        }
+        S.forced++;
+        if (S.cash < 0) {
+          S.cash = 0;
+        }
+        return true;
+      }
+
+      function tick() {
+        S.day++;
+        const d = dateOf(S.day),
+          dom = d.getDate(),
+          wk = d.getDay() % 6 === 0,
+          evs = [];
+        S.sent = S.sent * 0.97 + 0.0004 * g();
+        A.forEach((a) => {
+          const r =
+            a.cl && wk ? 0 : a.y(S) / 36500 + a.vol * g() + a.b * S.sent;
+          a.p *= 1 + r;
+          a.h.push(a.p);
+        });
+        S.eaten += (S.cash * S.ipca) / 36500;
+        S.usd = Math.max(4.4, Math.min(6.8, S.usd + g() * 0.02));
+        if (dom === 1) {
+          const f = pay(2800);
+          S.mattress -= 2800;
+          note("Contas do mês: −R$ 2.800");
+          if (f) evs.push(forcedEv("as contas do mês"));
+        }
+        if (dom === 5) {
+          S.cash += 4000;
+          S.mattress += 4000;
+          RIV.forEach((r) => alloc(r, 1200));
+          note("Salário: +R$ 4.000");
+          sfx("ka");
+        }
+        if (dom === 10) {
+          const dv =
+            val("fii") * 0.008 +
+            (d.getMonth() % 3 === 0 ? val("acoes") * 0.01 : 0);
+          if (dv > 1) {
+            S.cash += dv;
+            note("Dividendos: +" + R$(dv));
+          }
+        }
+        if (S.day % 45 === 0) evs.push(copom());
+        else if (S.day > 6 && Math.random() < 0.022) evs.push(randomEv());
+        S.tot.push(total());
+        S.mat.push(S.mattress);
+        if (S.ipca > 9) S.ipca = 9;
+        S.ipca = Math.max(3, S.ipca + g() * 0.012);
+        return evs;
+      }
+      function note(t, tone) {
+        S.log.unshift({ d: S.day, t });
+        S.log.length = Math.min(S.log.length, 40);
+      }
+
+      function copom() {
+        const dl = pick([-0.5, -0.25, 0, 0, 0.25, 0.5]);
+        S.selic = Math.max(8, Math.min(18, S.selic + dl));
+        const fx = A.filter((a) => a.s).map((a) => {
+          const x = a.s * dl;
+          a.p *= 1 + x / 100;
+          a.h[a.h.length - 1] = a.p;
+          S.why[a.id] =
+            "Copom: Selic " +
+            (dl > 0 ? "subiu" : dl < 0 ? "caiu" : "ficou") +
+            ". Efeito: " +
+            pc(x);
+          return [a.n, x];
+        });
+        note("Copom: Selic em " + S.selic.toFixed(2).replace(".", ",") + "%");
+        const rows =
+          dl === 0
+            ? '<div class="eff"><span>Nada se move. Mercado respira.</span></div>'
+            : fx
+                .map(
+                  ([n, x]) =>
+                    `<div class="eff"><span>${n}</span><span class="${x > 0 ? "up" : "dn"}">${x > 0 ? "▲" : "▼"} ${pc(x)}</span></div>`,
+                )
+                .join("") +
+              `<div class="eff"><span>Tesouro Selic e CDB</span><span class="${dl > 0 ? "up" : "dn"}">${dl > 0 ? "▲ rendem mais" : "▼ rendem menos"}</span></div>`;
+        return {
+          tag: "DIA DO COPOM",
+          title:
+            dl > 0
+              ? "Selic sobe para " + S.selic.toFixed(2).replace(".", ",") + "%"
+              : dl < 0
+                ? "Selic cai para " + S.selic.toFixed(2).replace(".", ",") + "%"
+                : "Selic mantida em " +
+                  S.selic.toFixed(2).replace(".", ",") +
+                  "%",
+          txt: "Juro alto deixa o crédito caro e a renda fixa atraente. Veja quem ganha e quem perde:",
+          html: '<div class="box">' + rows + "</div>",
+          opts: [
+            {
+              l: "Entendi",
+              go: () => {
+                S.xp += 10;
+              },
+            },
+          ],
+          say:
+            dl > 0
+              ? "Selic subindo: renda fixa sorri, bolsa franze a testa."
+              : "Juro mexeu. Olha a Carteira.",
+        };
+      }
+      function forcedEv(why) {
+        return {
+          tag: "APERTO",
+          title: "Faltou caixa",
+          txt:
+            "Para pagar " +
+            why +
+            ", o jogo vendeu seus ativos na hora, pagando IR e talvez no pior preço. É exatamente para isso que existe a reserva de emergência.",
+          opts: [{ l: "Anotado. Vou montar a reserva", go: () => {} }],
+          say: "Reserva de 3 a 6 meses evita esse tipo de susto.",
+        };
+      }
+      function randomEv() {
+        let r = Math.random();
+        if (r >= 0.5 && r < 0.58 && S.seen.fr) r = 0.7;
+        if (r >= 0.86 && (S.seen.cr || 0) >= 2) r = 0.7;
+        if (r >= 0.5 && r < 0.58) S.seen.fr = 1;
+        if (r >= 0.86) S.seen.cr = (S.seen.cr || 0) + 1;
+        if (r < 0.25) {
+          const legit = Math.random() < 0.3;
+          return {
+            tag: "MENSAGEM NO ZAP",
+            title: 'Primo Beto: "MEME vai 10x amanhã"',
+            txt: "Ele jura que é certeza. Você já viu esse filme.",
+            opts: [
+              {
+                l: "Colocar R$ 800 (vai que é)",
+                go: () => {
+                  if (S.cash < 800) return "Sem caixa para isso";
+                  buy("cripto", 800);
+                  const k = legit ? 1.8 : 0.4;
+                  ast("cripto").p *= k;
+                  ast("cripto").h[ast("cripto").h.length - 1] = ast("cripto").p;
+                  S.why.cripto =
+                    "Dica do primo: " +
+                    (legit ? "deu certo, por sorte" : "era golpe");
+                  return legit
+                    ? "Deu sorte! Cripto +80%"
+                    : "Era golpe: −60% em um dia";
+                },
+              },
+              {
+                l: "Pesquisar (+1 dia)",
+                go: () => {
+                  S.xp += 15;
+                  return legit
+                    ? "Era legítima, mas arriscada."
+                    : "Golpe confirmado. Você escapou! +15 XP";
+                },
+              },
+              { l: "Ignorar", go: () => {} },
+            ],
+            say: "Promessa de ganho garantido é sinal de alerta.",
+          };
+        }
+        if (r < 0.5) {
+          const v = pick([900, 1500, 2400, 3200]);
+          return {
+            tag: "IMPREVISTO",
+            title: "O carro quebrou",
+            txt: "Conserto: " + R$(v) + ". A vida não avisa antes.",
+            opts: [
+              {
+                l: "Pagar " + R$(v),
+                go: () => {
+                  const f = pay(v);
+                  if (f) {
+                    S.pendingForced = 1;
+                    return "Venda forçada de ativos!";
+                  }
+                  S.xp += 10;
+                  return "Pago com a reserva. Dormiu tranquilo +10 XP";
+                },
+              },
+            ],
+            say: "Reserva existe para dias assim.",
+          };
+        }
+        if (r < 0.58) {
+          const a = ast("acoes");
+          a.p *= 0.78;
+          a.h[a.h.length - 1] = a.p;
+          S.why.acoes = "Fraude contábil descoberta: −22% em um dia";
+          return {
+            tag: "URGENTE",
+            title: "VIVA SA: fraude contábil",
+            txt:
+              "Ações despencaram 22% em um dia. " +
+              (pos("acoes").u
+                ? "Você estava dentro."
+                : "Você não tinha ações.") +
+              " Quanto mais concentrado, mais dói.",
+            opts: [
+              {
+                l: "Ver o estrago",
+                go: () => {
+                  S.xp += 10;
+                },
+              },
+            ],
+            say: "Diversificar é não deixar uma empresa decidir seu ano.",
+          };
+        }
+        if (r < 0.86) {
+          const a = ast("etf");
+          a.p *= 1.07;
+          a.h[a.h.length - 1] = a.p;
+          const b = ast("acoes");
+          b.p *= 1.06;
+          b.h[b.h.length - 1] = b.p;
+          S.why.etf = "Rali global: +7%";
+          S.why.acoes = "Rali global: +6%";
+          return {
+            tag: "BOA NOTÍCIA",
+            title: "Rali global",
+            txt: "Mercados do mundo disparam. ETF Mundo sobe 7% e as ações da VIVA, 6%.",
+            opts: [{ l: "Bora", go: () => {} }],
+            say: "Estar posicionado antes da festa é metade da graça.",
+          };
+        }
+        ["acoes", "fii", "etf", "cripto"].forEach((i) => {
+          const a = ast(i);
+          a.p *= { acoes: 0.9, fii: 0.94, etf: 0.92, cripto: 0.78 }[i];
+          a.h[a.h.length - 1] = a.p;
+          S.why[i] = "Pânico global";
+        });
+        return {
+          tag: "PÂNICO NO MERCADO",
+          title: "Tudo caiu de uma vez",
+          txt: "Bolsas no vermelho. Segure o botão por 2 segundos para manter a calma. Soltou antes, vende tudo na pior hora.",
+          opts: [],
+          hold: 1,
+          say: "Quem vende no fundo transforma queda em prejuízo de verdade.",
+        };
+      }
+
+      const RIV = [
+        { n: "Carlos Conservador", w: { sel: 0.7, cdb: 0.3 }, u: {} },
+        {
+          n: "Marina Moderada",
+          w: { sel: 0.3, cdb: 0.2, etf: 0.25, fii: 0.15, ouro: 0.1 },
+          u: {},
+        },
+        {
+          n: "Arthur Arrojado",
+          w: { acoes: 0.4, cripto: 0.3, etf: 0.2, fii: 0.1 },
+          u: {},
+        },
+      ];
+      function alloc(r, amt) {
+        for (const id in r.w)
+          r.u[id] = (r.u[id] || 0) + (amt * r.w[id]) / ast(id).p;
+      }
+      const rval = (r) =>
+        Object.keys(r.u).reduce((s, i) => s + r.u[i] * ast(i).p, 0);
+      RIV.forEach((r) => alloc(r, 5000));
+
+      function line(svg, series, span, h = 110) {
+        const w = 340,
+          all = series.flatMap((s) => s.d);
+        let lo = Math.min(...all),
+          hi = Math.max(...all);
+        if (hi - lo < 1e-6) {
+          hi++;
+          lo--;
+        }
+        const pd = (hi - lo) * 0.1;
+        lo -= pd;
+        hi += pd;
+        const n = span || Math.max(...series.map((s) => s.d.length));
+        svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+        svg.innerHTML = series
+          .map((s) => {
+            const pts = s.d.map(
+              (v, i) =>
+                ((i / Math.max(n - 1, 1)) * w).toFixed(1) +
+                "," +
+                (h - ((v - lo) / (hi - lo)) * h).toFixed(1),
+            );
+            const P = "M" + pts.join("L"),
+              e = pts[pts.length - 1].split(",");
+            return (
+              (s.fill
+                ? `<path d="${P}L${e[0]},${h}L0,${h}Z" fill="${s.fill}"/>`
+                : "") +
+              `<path d="${P}" fill="none" stroke="${s.c}" stroke-width="${s.w || 2.5}" ${s.dash ? 'stroke-dasharray="5 5"' : ""} vector-effect="non-scaling-stroke" stroke-linejoin="round"/>` +
+              (s.dot
+                ? `<circle cx="${e[0]}" cy="${e[1]}" r="4.5" fill="${s.c}"/>`
+                : "")
+            );
+          })
+          .join("");
+      }
+      const spark = (a) => {
+        const d = a.h.slice(-30),
+          lo = Math.min(...d),
+          hi = Math.max(...d) || 1,
+          r = hi - lo || 1;
+        return `<svg class="spk" viewBox="0 0 60 26" preserveAspectRatio="none"><path d="M${d.map((v, i) => ((i / Math.max(d.length - 1, 1)) * 60).toFixed(1) + "," + (24 - ((v - lo) / r) * 22).toFixed(1)).join("L")}" fill="none" stroke="${d[d.length - 1] >= d[0] ? "#3ddc84" : "#ff4d4d"}" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>`;
+      };
+
+      function countUp(el, to, fmt) {
+        const from = el._v ?? to;
+        el._v = to;
+        cancelAnimationFrame(el._r);
+        const t0 = performance.now();
+        (function f(t) {
+          const p = Math.min(1, (t - t0) / 380),
+            e = 1 - Math.pow(1 - p, 3);
+          el.textContent = fmt(from + (to - from) * e);
+          if (p < 1) el._r = requestAnimationFrame(f);
+        })(t0);
+      }
+      function render() {
+        const t = total(),
+          d = dateOf(S.day);
+        $("#dt").textContent = d.getDate() + " " + MES[d.getMonth()];
+        $("#dn").textContent = "dia " + S.day + " de 365";
+        $("#pr").style.width = (S.day / 365) * 100 + "%";
+        countUp($("#tot"), t, R$);
+        countUp($("#cash"), S.cash, R$);
+        countUp($("#eat"), S.eaten, R$);
+        const dl = (t / 5000 - 1) * 100;
+        $("#dlt").textContent = pc(dl) + " no ano";
+        $("#dlt").className = "pill" + (dl < 0 ? " dn" : "");
+        $("#real").textContent =
+          "real " + R$(t / (1 + ((S.ipca / 100) * S.day) / 365));
+        const m = S.cash / 2800;
+        $("#res").textContent = m.toFixed(1).replace(".", ",") + " m";
+        $("#rb").style.width = Math.min(100, (m / 6) * 100) + "%";
+        line(
+          $("#ch"),
+          [
+            { d: S.mat, c: "#0e0e0c88", dash: 1, w: 2 },
+            { d: S.tot, c: "#0e0e0c", fill: "#0e0e0c18", dot: 1 },
+          ],
+          365,
+        );
+        if (S.tab === "m") viewM();
+        if (S.tab === "c") viewC();
+        if (S.tab === "r") viewR();
+      }
+      function viewM() {
+        $("#v-m").innerHTML = A.map((a) => {
+          const ch = (a.p / a.h[Math.max(0, a.h.length - 2)] - 1) * 100,
+            o = val(a.id);
+          return `<button class="row" data-a="${a.id}"><div class="tile" style="background:${a.c}">${a.m}</div><div class="nm"><b>${a.n}</b><small>${a.rf ? "RENDA FIXA" : "RENDA VARIÁVEL"} · ${o ? "você tem " + R$(o) : a.risk}</small></div>${spark(a)}<div class="rt">${a.p.toFixed(1).replace(".", ",")}<small class="${ch >= 0 ? "up" : "dn"}">${pc(ch)} hoje</small></div></button>`;
+        }).join("");
+        $$("[data-a]").forEach(
+          (b) => (b.onclick = () => openAsset(b.dataset.a)),
+        );
+      }
+      function viewC() {
+        const t = total(),
+          ids = Object.keys(S.pos),
+          parts = [...ids.map((i) => [ast(i).c, val(i)]), ["#5a5a42", S.cash]];
+        const board = [
+          { n: "Você", v: t, me: 1 },
+          ...RIV.map((r) => ({ n: r.n, v: rval(r) })),
+        ].sort((a, b) => b.v - a.v);
+        $("#v-c").innerHTML =
+          `<h4>COMO SEU DINHEIRO ESTÁ DIVIDIDO</h4><div class="bar">${parts.map(([c, v]) => `<i style="width:${(v / t) * 100}%;background:${c}"></i>`).join("")}</div>` +
+          (ids.length
+            ? ids
+                .map((id) => {
+                  const a = ast(id),
+                    p = pos(id),
+                    v = val(id),
+                    pl = (v / p.cost - 1) * 100;
+                  return `<button class="row" data-a="${id}"><div class="tile" style="background:${a.c}">${a.m}</div><div class="nm"><b>${a.n}</b><small>investido ${R$(p.cost)}</small></div><div class="rt">${R$(v)}<small class="${pl >= 0 ? "up" : "dn"}">${pc(pl)}</small></div></button>`;
+                })
+                .join("")
+            : '<div class="box">Tudo no caixa, e a traça agradece. Vá em Mercado e escolha onde plantar.</div>') +
+          `<h4>PLACAR DO ANO</h4>` +
+          board
+            .map(
+              (b, i) =>
+                `<div class="row" style="${b.me ? "border-color:var(--y)" : ""}"><div class="tile" style="background:${b.me ? "var(--y)" : "var(--p2)"};color:${b.me ? "#0e0e0c" : "var(--t)"}">${i + 1}º</div><div class="nm"><b>${b.n}</b></div><div class="rt">${R$(b.v)}</div></div>`,
+            )
+            .join("");
+        $$("[data-a]").forEach(
+          (b) => (b.onclick = () => openAsset(b.dataset.a)),
+        );
+      }
+      function viewR() {
+        const sn =
+          S.sent > 0.004 ? "Otimista" : S.sent < -0.004 ? "Com medo" : "Neutro";
+        $("#v-r").innerHTML =
+          `<div class="grid"><div><small>SELIC</small>${S.selic.toFixed(2).replace(".", ",")}%</div><div><small>INFLAÇÃO (IPCA)</small>${S.ipca.toFixed(1).replace(".", ",")}%</div><div><small>JURO REAL</small>${(S.selic - S.ipca).toFixed(1).replace(".", ",")}%</div><div><small>DÓLAR</small>R$ ${S.usd.toFixed(2).replace(".", ",")}</div><div><small>HUMOR DO MERCADO</small>${sn}</div><div><small>NÍVEL</small>${1 + Math.floor(S.xp / 100)} · ${S.xp} XP</div></div><div class="box">Juro real ≈ juro nominal − inflação. Se rende 14% e os preços sobem 4,4%, sobra uns 9,6% de ganho de verdade.</div><h4>ACONTECEU</h4>` +
+          (S.log
+            .map(
+              (l) =>
+                `<div class="log">${l.t}<br><small>dia ${l.d}</small></div>`,
+            )
+            .join("") || '<div class="log"><small>Ainda nada.</small></div>');
+      }
+      function say(t) {
+        $("#say").textContent = t;
+        const c = $("#capi");
+        c.classList.remove("bump");
+        void c.offsetWidth;
+        c.classList.add("bump");
+      }
+      function toast(t) {
+        const e = $("#toast");
+        e.textContent = t;
+        e.classList.add("on");
+        clearTimeout(toast.t);
+        toast.t = setTimeout(() => e.classList.remove("on"), 2400);
+      }
+      function openSheet(h) {
+        $("#sc").innerHTML = '<i class="grip"></i>' + h;
+        $("#sheet").classList.add("on");
+      }
+      function closeSheet() {
+        $("#sheet").classList.remove("on");
+      }
+
+      let ac;
+      function sfx(k) {
+        if (!S.snd) return;
+        try {
+          ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+          const seq = {
+            ka: [
+              [880, 0.07],
+              [1320, 0.14],
+            ],
+            tick: [[300 + (S.day % 12) * 18, 0.03]],
+            low: [[160, 0.2]],
+            win: [
+              [660, 0.08],
+              [880, 0.08],
+              [1180, 0.16],
+            ],
+          }[k];
+          let t = ac.currentTime;
+          seq.forEach(([f, d]) => {
+            const o = ac.createOscillator(),
+              v = ac.createGain();
+            o.type = k === "low" ? "sawtooth" : "triangle";
+            o.frequency.value = f;
+            v.gain.setValueAtTime(0.06, t);
+            v.gain.exponentialRampToValueAtTime(0.001, t + d);
+            o.connect(v);
+            v.connect(ac.destination);
+            o.start(t);
+            o.stop(t + d);
+            t += d * 0.8;
+          });
+        } catch (e) {}
+      }
+      function confetti(
+        n = 40,
+        cols = ["#ffd400", "#3ddc84", "#f6f3e4", "#ff7d9d"],
+      ) {
+        for (let i = 0; i < n; i++) {
+          const e = document.createElement("i");
+          e.className = "c";
+          e.style.cssText = `left:${Math.random() * 100}%;background:${cols[i % cols.length]};animation-delay:${Math.random() * 0.4}s`;
+          document.body.appendChild(e);
+          setTimeout(() => e.remove(), 2300);
+        }
+      }
+      function flash(k) {
+        document.body.classList.remove("fg", "fr");
+        void document.body.offsetWidth;
+        document.body.classList.add(k);
+      }
+      function floatText(t, up) {
+        const r = $("#tot").getBoundingClientRect(),
+          e = document.createElement("div");
+        e.className = "fl";
+        e.textContent = t;
+        e.style.cssText = `left:${r.left + Math.random() * 120}px;top:${r.top}px;color:${up ? "#0e0e0c" : "#0e0e0c"}`;
+        document.body.appendChild(e);
+        setTimeout(() => e.remove(), 1000);
+      }
+      const vib = (n) => navigator.vibrate && navigator.vibrate(n);
+      function juice(old, now) {
+        const ch = now / old - 1;
+        if (Math.abs(ch) < 0.002) return;
+        if (ch > 0) {
+          flash("fg");
+          floatText("+" + R$(now - old), 1);
+          sfx("ka");
+          say(
+            pick([
+              "Subiu " + pc(ch * 100) + ". Não se apaixona: o mercado muda.",
+              "Dinheiro trabalhando enquanto você dorme.",
+            ]),
+          );
+        } else {
+          flash("fr");
+          floatText("−" + R$(old - now));
+          sfx("low");
+          say(
+            pick([
+              "Caiu " + pc(ch * 100) + ". Quem tem reserva dorme bem.",
+              "Oscilar faz parte. Vender no susto, não.",
+            ]),
+          );
+          if (ch < -0.025) {
+            $("#app").classList.add("shake");
+            setTimeout(() => $("#app").classList.remove("shake"), 400);
+            vib([60, 40, 60]);
+          }
+        }
+        [10000, 15000, 25000, 50000].forEach((m) => {
+          if (old < m && now >= m) {
+            confetti(70);
+            toast("Marco: " + R$(m) + " de patrimônio!");
+            sfx("win");
+            S.xp += 50;
+          }
+        });
+      }
+
+      function modal(ev) {
+        return new Promise((res) => {
+          if (ev.say) say(ev.say);
+          openSheet(
+            `<div class="tag">${ev.tag}</div><h2>${ev.title}</h2><p>${ev.txt}</p>${ev.html || ""}${ev.hold ? '<button class="cta" id="hold"><i></i><span>SEGURE PARA NÃO VENDER</span></button>' : ""}${ev.opts.map((o, i) => `<button class="op" data-i="${i}">${o.l}</button>`).join("")}`,
+          );
+          $$("#sc .op").forEach(
+            (b) =>
+              (b.onclick = () => {
+                const m = ev.opts[b.dataset.i].go();
+                closeSheet();
+                if (m) toast(m);
+                render();
+                res();
+              }),
+          );
+          if (ev.hold) {
+            const b = $("#hold"),
+              f = b.querySelector("i");
+            let t0 = 0,
+              raf;
+            const stop = () => {
+              cancelAnimationFrame(raf);
+              if (!t0) return;
+              t0 = 0;
+              f.style.width = 0;
+              Object.keys(S.pos)
+                .filter((i) => ["acoes", "fii", "etf", "cripto"].includes(i))
+                .forEach((i) => sell(i, 1));
+              closeSheet();
+              toast("Vendeu no fundo. Prejuízo realizado.");
+              sfx("low");
+              render();
+              res();
+            };
+            b.onpointerdown = () => {
+              t0 = performance.now();
+              (function s(t) {
+                const p = (t - t0) / 2000;
+                f.style.width = Math.min(100, p * 100) + "%";
+                if (!t0) return;
+                if (p >= 1) {
+                  t0 = 0;
+                  closeSheet();
+                  S.xp += 40;
+                  S.sent += 0.004;
+                  toast("Mão de diamante! +40 XP");
+                  confetti(50);
+                  sfx("win");
+                  render();
+                  res();
+                } else raf = requestAnimationFrame(s);
+              })(t0);
+            };
+            b.onpointerup = b.onpointerleave = stop;
+          }
+        });
+      }
+      function openAsset(id, range = 90) {
+        const a = ast(id),
+          p = pos(id),
+          max = Math.floor(S.cash),
+          ch = (a.p / a.h[Math.max(0, a.h.length - 31)] - 1) * 100;
+        openSheet(`<div style="display:flex;gap:12px;align-items:center"><div class="tile" style="background:${a.c}">${a.m}</div><div style="flex:1"><h2 style="margin:0;font-size:20px">${a.n}</h2><small style="color:var(--m)">${a.rf ? "RENDA FIXA" : "RENDA VARIÁVEL"}</small></div><div class="rt">${a.p.toFixed(1).replace(".", ",")}<small class="${ch >= 0 ? "up" : "dn"}">${pc(ch)} em 30d</small></div></div>
+  <svg id="sch" viewBox="0 0 340 120" preserveAspectRatio="none"></svg>
+  <div class="rg">${[
+    [30, "30d"],
+    [90, "90d"],
+    [999, "Tudo"],
+  ]
+    .map(
+      ([r, l]) =>
+        `<button data-r="${r}" class="${r === range ? "on" : ""}">${l}</button>`,
+    )
+    .join("")}</div>
+  <p>${a.d}</p>
+  <div class="grid"><div><small>RENDE</small>${a.rf ? "~" + a.y(S).toFixed(1).replace(".", ",") + "% a.a." : "variável"}</div><div><small>RISCO</small>${a.risk}</div><div><small>RESGATE</small>${a.liq}</div><div><small>IMPOSTO</small>${a.ir ? "15% sobre o lucro" : "isento"}</div></div>
+  ${S.why[id] ? `<div class="box"><b>Por que mexeu?</b> ${S.why[id]}</div>` : ""}
+  <div class="box"><b>Dica do Capi:</b> ${a.tip}</div>
+  <div class="amt"><span>Investir</span><b id="av">${R$(Math.min(500, max))}</b></div>
+  <input type="range" id="sl" min="0" max="${Math.max(50, max)}" step="50" value="${Math.min(500, max)}">
+  <div class="rg"><button data-q="100">R$ 100</button><button data-q="500">R$ 500</button><button data-q="1000">R$ 1.000</button><button data-q="max">Tudo</button></div>
+  <button class="cta" id="bb"><span>Comprar</span></button>
+  ${p.u ? `<button class="op" data-s=".5">Vender metade (${R$(val(id) * 0.5)} brutos)</button><button class="op" data-s="1">Vender tudo (${R$(val(id))} brutos, IR descontado no resgate)</button>` : ""}
+  <button class="op" id="cl" style="text-align:center;color:var(--m)">Fechar</button>`);
+        line(
+          $("#sch"),
+          [{ d: a.h.slice(-range), c: a.c, fill: a.c + "22" }],
+          null,
+          120,
+        );
+        $$("[data-r]").forEach(
+          (b) => (b.onclick = () => openAsset(id, +b.dataset.r)),
+        );
+        const sl = $("#sl");
+        sl.oninput = () => ($("#av").textContent = R$(+sl.value));
+        $$("[data-q]").forEach(
+          (b) =>
+            (b.onclick = () => {
+              sl.value =
+                b.dataset.q === "max" ? max : Math.min(max, b.dataset.q);
+              sl.oninput();
+              sfx("tick");
+            }),
+        );
+        $("#bb").onclick = () => {
+          const v = +sl.value;
+          if (v < 50) return toast("Mínimo de R$ 50");
+          if (v > S.cash) return toast("Sem caixa suficiente");
+          const first = !S.seen.b;
+          S.seen.b = 1;
+          buy(id, v);
+          S.xp += 15;
+          closeSheet();
+          sfx("ka");
+          confetti(first ? 60 : 20, [a.c, "#ffd400"]);
+          vib(30);
+          say(
+            "Plantou " +
+              R$(v) +
+              " em " +
+              a.n +
+              ". Agora é deixar o tempo trabalhar.",
+          );
+          toast(first ? "Primeiro investimento! +15 XP" : "Comprado: " + a.n);
+          render();
+        };
+        $$("[data-s]").forEach(
+          (b) =>
+            (b.onclick = () => {
+              const n = sell(id, +b.dataset.s);
+              closeSheet();
+              sfx("ka");
+              toast("Resgate líquido: " + R$(n));
+              render();
+            }),
+        );
+        $("#cl").onclick = closeSheet;
+      }
+
+      async function run(n) {
+        if (S.busy) return;
+        S.busy = true;
+        const old = total();
+        let q = [];
+        for (let i = 0; i < n && S.day < 365; i++) {
+          q = tick();
+          render();
+          if (i % 2 === 0) sfx("tick");
+          await sleep(n > 10 ? 16 : 60);
+          if (q.length) break;
+        }
+        S.busy = false;
+        juice(old, total());
+        for (const ev of q) await modal(ev);
+        if (S.pendingForced) {
+          S.pendingForced = 0;
+          await modal(forcedEv("o imprevisto"));
+        }
+        if (S.day >= 365) endGame();
+      }
+
+      function endGame() {
+        const t = total(),
+          real = t / (1 + S.ipca / 100),
+          rv = RIV.map((r) => ({ n: r.n, v: rval(r) })),
+          best = Math.max(...rv.map((r) => r.v)),
+          cls = Object.keys(S.pos).length;
+        const medal =
+          t > best
+            ? "OURO"
+            : t > rv[0].v
+              ? "PRATA"
+              : t > S.mattress
+                ? "BRONZE"
+                : "SEM MEDALHA";
+        const lessons = [
+          cls < 3
+            ? "Você concentrou o dinheiro em poucos ativos. Diversificar reduz o risco sem matar o retorno."
+            : "Boa diversificação: você não colocou todos os ovos na mesma cesta.",
+          S.forced
+            ? "Você precisou vender ativos à força. Reserva de emergência evita isso."
+            : "Nenhuma venda forçada: sua reserva fez o trabalho dela.",
+          S.eaten > 600
+            ? "A traça comeu " +
+              R$(S.eaten) +
+              " de dinheiro parado. Caixa sem rendimento perde para a inflação."
+            : "Pouco dinheiro parado: a traça passou fome.",
+        ];
+        confetti(90);
+        sfx("win");
+        openSheet(
+          `<div class="tag">FIM DO ANO · 365 DIAS</div><h2>${medal}</h2><p>Você terminou com <b style="color:var(--y)">${R$(t)}</b> (${R$(real)} em poder de compra). Sem investir nada, teria ${R$(S.mattress)}.</p><div class="box">${rv.map((r) => `<div class="eff"><span>${r.n}</span><span>${R$(r.v)}</span></div>`).join("")}</div>${lessons.map((l) => `<div class="box">${l}</div>`).join("")}<button class="cta" onclick="location.reload()"><span>Jogar de novo</span></button><p style="font-size:11px;color:var(--m);margin-top:10px">Tudo aqui é simulado e educativo. Não é recomendação de investimento.</p>`,
+        );
+      }
+
+      $$(".tb").forEach((b) => (b.onclick = () => run(+b.dataset.n)));
+      $$("#tabs button").forEach(
+        (b) =>
+          (b.onclick = () => {
+            $$("#tabs button").forEach((x) =>
+              x.classList.toggle("on", x === b),
+            );
+            S.tab = b.dataset.t;
+            $$(".view").forEach((v) =>
+              v.classList.toggle("on", v.id === "v-" + S.tab),
+            );
+            render();
+            sfx("tick");
+          }),
+      );
+      $("#snd").onclick = () => {
+        S.snd = !S.snd;
+        $("#snd").style.opacity = S.snd ? 1 : 0.35;
+      };
+      $("#sheet").onclick = (e) => {
+        if (e.target.id === "sheet" && !$("#hold")) closeSheet();
+      };
+      S.tab = "m";
+      render();
+      say("Você tem R$ 5.000 e 365 dias. A traça já está de olho no caixa.");
+      openSheet(
+        `<div class="tag">BEM-VINDO</div><h2>365 dias. R$ 5.000. Uma traça faminta.</h2><p>Dinheiro parado perde valor todo dia. Seu objetivo: terminar o ano com mais poder de compra que os três rivais.</p><div class="box">Todo dia 1 vêm as contas (R$ 2.800). Todo dia 5, o salário (R$ 4.000). No meio disso, juros, notícias e primos com dicas quentes. Use <b>+1, +7, +30</b> ou <b>»</b> para pular até o próximo evento.</div><button class="cta" id="go"><span>Começar o ano</span></button>`,
+      );
+      $("#go").onclick = () => {
+        closeSheet();
+        sfx("ka");
+      };
+    </script>
+  </body>
+</html>
